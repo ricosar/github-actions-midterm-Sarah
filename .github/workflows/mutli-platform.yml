@@ -1,4 +1,4 @@
-name: multi-platform!
+name: multi-platform!!
 
 on:
   pull_request:
@@ -64,6 +64,6 @@ jobs:
       - name: creating a simple file to display contents
         run: |
           echo  "hello from macos!" > macos.txt
-          
+
       - name: displaying file contents
         run: cat macos.txt
