@@ -1,0 +1,34 @@
+name: dependent jobs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: building application
+    runs-on: ubuntu-latest
+    steps:
+      - name: building application
+        run: echo Building application...
+      - name: sleep command
+        run: sleep 5
+  test:
+    name: running tests
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: running tests
+        run: echo Running tests...
+      - name: sleep command
+        run: sleep 5
+  deploy:
+    name: deploying application
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: deploying application
+        run: echo Deploying application..
+      - name: sleep command
+        run: sleep 5
