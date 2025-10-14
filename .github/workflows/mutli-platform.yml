@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: print out OS information
-        run: system info
+        run: systeminfo
 
       - name: run a simple command to show OS-specific behaviour
         run: dir
