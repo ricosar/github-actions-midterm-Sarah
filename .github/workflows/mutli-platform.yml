@@ -1,0 +1,69 @@
+name: multi-platform!!
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ubuntu-job:
+    name: runs on ubuntu latest
+    runs-on: ubuntu-latest
+    steps:
+      - name: copy code using actions/checkout@v4
+        uses: actions/checkout@v4 #copy repo code to local machine
+
+      - name: print out OS information
+        run: uname -a
+
+      - name: run a simple command to show OS-specific behaviour
+        run: ls
+
+      - name: creating a simple file to display contents
+        run: |
+          echo  "hello from ubuntu!" > ubuntu.txt
+
+      - name: displaying file contents
+        run: cat ubuntu.txt
+
+        
+
+  windows-job:
+    name: runs on windows latest
+    runs-on: windows-latest
+    steps:
+      - name: copy code using actions/checkout@v4
+        uses: actions/checkout@v4
+
+      - name: print out OS information
+        run: systeminfo
+
+      - name: run a simple command to show OS-specific behaviour
+        run: dir
+
+      - name: creating a simple file to display contents
+        run: |
+          echo  "hello there from windows!!" > windows.txt
+      
+      - name: displaying file contents
+        run: type windows.txt
+
+  macos-job:
+    name: runs on macos latest
+    runs-on: macos-latest
+    steps:
+      - name: copy code using actions/checkout@v4
+        uses: actions/checkout@v4
+
+      - name: print out OS information
+        run: uname -a
+
+      - name:  run a simple command to show OS-specific behaviour
+        run: ls
+
+      - name: creating a simple file to display contents
+        run: |
+          echo  "hello from macos!" > macos.txt
+
+      - name: displaying file contents
+        run: cat macos.txt
